@@ -1,6 +1,33 @@
-@CapacitaDigitalApi_HostAddress = http://localhost:5204
-
-GET {{CapacitaDigitalApi_HostAddress}}/weatherforecast/
-Accept: application/json
+@CapacitaDigitalApi_HostAddress = http://localhost:5158
 
 ###
+### Testar GET todos os usuários
+GET {{CapacitaDigitalApi_HostAddress}}/api/users
+Accept: application/json
+
+### Testar GET um usuário específico
+GET {{CapacitaDigitalApi_HostAddress}}/api/users/1
+Accept: application/json
+
+### Testar POST para criar um novo usuário
+POST {{CapacitaDigitalApi_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+    "Name": "José Jamerson",
+    "Email": "jjmt@gmail.com",
+    "UserType": "Student" // Altere conforme o seu enum de status
+}
+
+### Testar PUT para atualizar um usuário
+PUT {{CapacitaDigitalApi_HostAddress}}/api/users/1
+Content-Type: application/json
+
+{
+    "Name": "José Jamerson",
+    "Email": "jjmt@gmail.com",
+    "UserType": "Teacher" // Altere conforme o seu enum de status
+}
+
+### Testar DELETE para remover um usuário
+DELETE {{CapacitaDigitalApi_HostAddress}}/api/users/1
