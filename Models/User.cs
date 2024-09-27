@@ -9,7 +9,7 @@ public class User
     public required string Name { get; set; }
     public required string Email { get; set; }
     // Propriedade para o tipo de usuário
-    public UserType UserType { get; set; }
+    public required int UserType { get; set; }
 
     // Você pode adicionar mais propriedades conforme necessário
 }

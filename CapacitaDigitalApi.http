@@ -6,18 +6,33 @@ GET {{CapacitaDigitalApi_HostAddress}}/api/users
 Accept: application/json
 
 ### Testar GET um usuário específico
-GET {{CapacitaDigitalApi_HostAddress}}/api/users/1
+GET {{CapacitaDigitalApi_HostAddress}}/api/users/9
 Accept: application/json
 
 ### Testar POST para criar um novo usuário
-POST {{CapacitaDigitalApi_HostAddress}}/api/users
+POST {{CapacitaDigitalApi_HostAddress}}/api/users/
 Content-Type: application/json
 
 {
-    "Name": "José Jamerson",
-    "Email": "jjmt@gmail.com",
-    "UserType": "Student" // Altere conforme o seu enum de status
+  "name": "jamerson",
+  "email": "jjamersonmt@gmail.com",
+  "userType": 1
 }
+
+### Testar POST para criar uma Categoria
+POST {{CapacitaDigitalApi_HostAddress}}/api/categories/
+Content-Type: application/json
+
+{
+  "name": "Categoria Exemplo",
+  "description": "Descrição da categoria",
+  "status": "Ativo",
+  "userId": 1  // ID do usuário que criou a categoria
+}
+
+  
+
+
 
 ### Testar PUT para atualizar um usuário
 PUT {{CapacitaDigitalApi_HostAddress}}/api/users/1

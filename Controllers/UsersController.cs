@@ -37,12 +37,19 @@ public class UsersController : ControllerBase
 
     // POST: api/users
     [HttpPost]
-    public async Task<ActionResult<User>> PostUser(User user)
+    public async Task<ActionResult<User>> PostUser([FromBody] User user)
     {
+        if (!ModelState.IsValid) // Verifica se o modelo é válido
+        {
+            return BadRequest(ModelState);
+        }
+
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-        return CreatedAtAction("GetUser", new { id = user.Id }, user);
+
+        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
     }
+
 
     // PUT: api/users/{id}
     [HttpPut("{id}")]
