@@ -15,10 +15,14 @@ public class AppDbContext : DbContext
     /* Aqui você pode adicionar outras entidades que deseja mapear para o banco de dados */
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
+        // Configuração do relacionamento entre User e Category
         modelBuilder.Entity<Category>()
-            .HasOne<User>() // Define que a entidade Category tem um relacionamento com uma entidade User
-            .WithMany() // Indica que a entidade User pode ter muitas Categories
-            .HasForeignKey(c => c.UserId); // Define a propriedade UserId como a chave estrangeira
+            .HasOne(c => c.User)
+            .WithMany(u => u.Categories)
+            .HasForeignKey(c => c.UserId)
+            .OnDelete(DeleteBehavior.Cascade); // Opcional: define o comportamento de exclusão
     }
 
 }

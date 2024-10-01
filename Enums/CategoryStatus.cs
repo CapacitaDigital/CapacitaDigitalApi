@@ -5,5 +5,5 @@ public enum CategoryStatus
 {
     Active,
     Inactive,
-    maintenance
+    Maintenance
 }

@@ -1,7 +1,6 @@
-﻿
-using Microsoft.EntityFrameworkCore.Migrations;
-#nullable disable
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
 
 namespace CapacitaDigitalApi.Migrations
 {
@@ -34,7 +33,7 @@ namespace CapacitaDigitalApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
