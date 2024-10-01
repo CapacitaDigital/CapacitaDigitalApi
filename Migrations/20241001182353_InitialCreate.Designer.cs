@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CapacitaDigitalApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241001032115_InitialCreateUserAndCategories")]
-    partial class InitialCreateUserAndCategories
+    [Migration("20241001182353_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

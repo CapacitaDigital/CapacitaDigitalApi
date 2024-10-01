@@ -39,8 +39,20 @@ public class CategoriesController : ControllerBase
 
     // POST: api/categories
     [HttpPost]
-    public async Task<ActionResult<Category>> PostCategory(Category category)
+    public async Task<ActionResult<Category>> PostCategory([FromForm] Category category)
     {
+        if (category.Image == null || category.Image.Length == 0)
+            return BadRequest("Nenhum arquivo foi enviado.");
+
+        var filePath = Path.Combine("wwwroot/images", category.Image.FileName);
+
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+            await category.Image.CopyToAsync(stream);
+        }
+
+        category.UrlImage = $"/images/{category.Image.FileName}";
+
         _context.Categories.Add(category);
         await _context.SaveChangesAsync();
 

@@ -506,3 +506,5 @@ C:/Users/Admin/source/repos/CSharp/CapacitaDigitalApi/bin/Debug/net8.0/runtimes/
 /home/double/Repo/CapacitaDigitalApi/obj/Debug/net8.0/CapacitaDigitalApi.pdb
 /home/double/Repo/CapacitaDigitalApi/obj/Debug/net8.0/CapacitaDigitalApi.genruntimeconfig.cache
 /home/double/Repo/CapacitaDigitalApi/obj/Debug/net8.0/ref/CapacitaDigitalApi.dll
+/home/double/Repo/CapacitaDigitalApi/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/home/double/Repo/CapacitaDigitalApi/bin/Debug/net8.0/CapacitaDigitalApi.staticwebassets.runtime.json

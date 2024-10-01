@@ -8,8 +8,7 @@ public class User
     public int Id { get; set; }
     public required string Name { get; set; }
     public required string Email { get; set; }
-    // Propriedade para o tipo de usuário
-    public required UserType UserType { get; set; }
-    
+    public required string Password { get; set; }
+    public required UserType UserType { get; set; }    // Propriedade para o tipo de usuário
 
 }

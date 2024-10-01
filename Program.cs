@@ -1,3 +1,4 @@
+using CapacitaDigitalApi.Data;
 using CapacitaDigitalApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -33,9 +34,26 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // Middleware para servir arquivos estáticos
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+// ### Seed the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        SeedData.Initialize(services);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Ocorreu um erro ao semear o banco de dados.");
+    }
+}
 
 app.Run();

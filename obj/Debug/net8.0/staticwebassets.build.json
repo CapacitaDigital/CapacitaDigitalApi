@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "7WfKNzyWoxx5eY978IFhzjWV+zvFKpE+LI1ui28BLb0=",
+  "Hash": "AyloEoCKDMKHqYQx7V6HYquc3HRRNhDyiLymc4kbCPU=",
   "Source": "CapacitaDigitalApi",
   "BasePath": "_content/CapacitaDigitalApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CapacitaDigitalApi/wwwroot",
+      "Source": "CapacitaDigitalApi",
+      "ContentRoot": "/home/double/Repo/CapacitaDigitalApi/wwwroot/",
+      "BasePath": "_content/CapacitaDigitalApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

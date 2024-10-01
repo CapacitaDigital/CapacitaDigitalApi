@@ -15,6 +15,12 @@ COPY . .
 WORKDIR "/src/."
 RUN dotnet build "CapacitaDigitalApi.csproj" -c $configuration -o /app/build
 
+# Instale a ferramenta dotnet-ef no estágio de build
+RUN dotnet tool install --global dotnet-ef
+
+# Adicione o caminho das ferramentas globais ao PATH
+ENV PATH="$PATH:/root/.dotnet/tools"
+
 FROM build AS publish
 ARG configuration=Release
 RUN dotnet publish "CapacitaDigitalApi.csproj" -c $configuration -o /app/publish /p:UseAppHost=false
