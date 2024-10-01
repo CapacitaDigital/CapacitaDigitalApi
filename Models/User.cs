@@ -10,7 +10,6 @@ public class User
     public required string Email { get; set; }
     // Propriedade para o tipo de usuário
     public required UserType UserType { get; set; }
-    // Propriedade de navegação para as categorias gerenciadas pelo usuário
-    public ICollection<Category> Categories { get; set; }
+    
 
 }

@@ -19,21 +19,6 @@ Content-Type: application/json
   "userType": 1
 }
 
-### Testar POST para criar uma Categoria
-POST {{CapacitaDigitalApi_HostAddress}}/api/categories/
-Content-Type: application/json
-
-{
-  "name": "Categoria Exemplo",
-  "description": "Descrição da categoria",
-  "status": "Ativo",
-  "userId": 1  // ID do usuário que criou a categoria
-}
-
-  
-
-
-
 ### Testar PUT para atualizar um usuário
 PUT {{CapacitaDigitalApi_HostAddress}}/api/users/1
 Content-Type: application/json
@@ -46,3 +31,22 @@ Content-Type: application/json
 
 ### Testar DELETE para remover um usuário
 DELETE {{CapacitaDigitalApi_HostAddress}}/api/users/1
+
+### Testar POST para criar uma Categoria
+GET {{CapacitaDigitalApi_HostAddress}}/api/categories/
+Accept: application/json
+
+### Testar POST para criar uma Categoria
+POST {{CapacitaDigitalApi_HostAddress}}/api/categories/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Desenvolvimento",
+  "description": "Cursos de Desenvolvimento",
+  "status": 1,
+  "userId": 1
+  
+}
+
+

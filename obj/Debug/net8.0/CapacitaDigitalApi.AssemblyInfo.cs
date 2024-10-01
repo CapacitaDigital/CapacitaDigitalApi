@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CapacitaDigitalApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84c53ee3d226473c2b53f9b7b47c8c51d24c7e9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9478185007e9dcf42deba2d2414449b42da07aba")]
 [assembly: System.Reflection.AssemblyProductAttribute("CapacitaDigitalApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CapacitaDigitalApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

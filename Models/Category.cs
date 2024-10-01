@@ -9,6 +9,4 @@ public class Category
     public required CategoryStatus Status { get; set; } // Status da categoria
     public required int UserId { get; set; }  // Propriedade para a chave estrangeira do usuário que gere a categoria
 
-    // Propriedade de navegação para o usuário  
-    public User User { get; set; }
 }

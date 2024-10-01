@@ -1,6 +1,6 @@
 # Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
 
-version: '3.4'
+# version: '3.4'
 
 services:
   capacitadigitalapi:
@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 5158:5158
+      - "5160:5158"
     depends_on:
       - sqlserver
 

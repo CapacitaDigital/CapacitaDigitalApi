@@ -2,7 +2,7 @@
 namespace CapacitaDigitalApi.Enums;
 public enum UserType
 {
-    Teacher,
-    Student,
-    Admin
+    Teacher = 1,
+    Student = 2,
+    Admin = 3
 }

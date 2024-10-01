@@ -8168,7 +8168,7 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "/home/double/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
@@ -8176,11 +8176,11 @@
       "projectUniqueName": "/home/double/Repo/CapacitaDigitalApi/CapacitaDigitalApi.csproj",
       "projectName": "CapacitaDigitalApi",
       "projectPath": "/home/double/Repo/CapacitaDigitalApi/CapacitaDigitalApi.csproj",
-      "packagesPath": "/root/.nuget/packages/",
+      "packagesPath": "/home/double/.nuget/packages/",
       "outputPath": "/home/double/Repo/CapacitaDigitalApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/double/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

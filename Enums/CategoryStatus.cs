@@ -3,7 +3,7 @@
 namespace CapacitaDigitalApi.Enums;
 public enum CategoryStatus
 {
-    Active,
-    Inactive,
-    Maintenance
+    Active = 1,
+    Inactive =2 ,
+    Maintenance =3 
 }
