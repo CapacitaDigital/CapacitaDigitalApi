@@ -16,6 +16,7 @@ Accept: application/json
 {
   "Name": "jose",
   "Email": "josejamersonmt@gmail.com",
+  "Password":"123456",
   "UserType": "Teacher" 
 }
 
