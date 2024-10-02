@@ -72,7 +72,7 @@ public static class SeedData
                     Description = "Categoria de português para ensino fundamental 1 e 2",
                     Status = CategoryStatus.Active,
                     UserId = userId,
-                    UrlImage = "/home/double/Downloads/download.jpeg"
+                    UrlImage = "/images/default.jpeg"
                 },
                 new Category
                 {
@@ -80,7 +80,7 @@ public static class SeedData
                     Description = "Categoria de Matemática para ensino fundamental 1 e 2",
                     Status = CategoryStatus.Active,
                     UserId = userId, // Adiciona UserId válido
-                    UrlImage = "/home/double/Downloads/download.jpeg"
+                    UrlImage = "/images/default.jpeg"
                 },
                 new Category
                 {
@@ -88,7 +88,7 @@ public static class SeedData
                     Description = "Categoria de Tecnologia",
                     Status = CategoryStatus.Active,
                     UserId = userId, // Adiciona UserId válido
-                    UrlImage = "/home/double/Downloads/download.jpeg"
+                    UrlImage = "/images/default.jpeg"
                 }
             );
 

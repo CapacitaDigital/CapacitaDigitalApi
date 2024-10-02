@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AyloEoCKDMKHqYQx7V6HYquc3HRRNhDyiLymc4kbCPU=",
+  "Hash": "mFFPqRwG6DT+wYxQuaZaoXm6ciPPuvNyAxHRfsYGJx8=",
   "Source": "CapacitaDigitalApi",
   "BasePath": "_content/CapacitaDigitalApi",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "/home/double/Repo/CapacitaDigitalApi/wwwroot/images/default.jpeg",
+      "SourceId": "CapacitaDigitalApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/double/Repo/CapacitaDigitalApi/wwwroot/",
+      "BasePath": "_content/CapacitaDigitalApi",
+      "RelativePath": "images/default.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/default.jpeg"
+    }
+  ]
 }

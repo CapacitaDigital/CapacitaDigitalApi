@@ -11,27 +11,28 @@ Accept: application/json
 ### POST criar uma Categoria
 POST {{HostAddres}}/categories/
 Content-Type: application/json
-Accept: application/json
 
 {
-  "id": 0,
   "Name": "Português",
   "Description": "Categoria de português para ensino fundamental 1 e 2",
+  "urlImage": "/images/default.jpeg",
   "Status": "Active",
   "UserId": 1
   
 }
 
 ### PUT atualizar uma categoria
-PUT {{HostAddres}}/categories/1006
+PUT {{HostAddres}}/categories/1
 Content-Type: application/json
+Accept: application/json
 
-{
-  "name": "Português",
-  "description": "Categoria de português para ensino fundamental 1, 2 e 3",
-  "status": "maintenance",
-  "userId": 1
-}
+  {
+    "Name": "mattt",
+    "Description": "Categoria ",
+    "UrlImage": "/images/default.jpeg",
+    "Status": "Active",
+    "UserId": 1
+  }
 
 ### DELETE remover uma categoria
 DELETE {{HostAddres}}/categories/1006

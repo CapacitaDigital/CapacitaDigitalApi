@@ -41,7 +41,6 @@ namespace CapacitaDigitalApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UrlImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")

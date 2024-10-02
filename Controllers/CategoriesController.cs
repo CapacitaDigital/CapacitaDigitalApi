@@ -41,34 +41,43 @@ public class CategoriesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Category>> PostCategory([FromForm] Category category)
     {
-        if (category.Image == null || category.Image.Length == 0)
-            return BadRequest("Nenhum arquivo foi enviado.");
-
-        var filePath = Path.Combine("wwwroot/images", category.Image.FileName);
-
-        using (var stream = new FileStream(filePath, FileMode.Create))
+        if (category == null)
         {
-            await category.Image.CopyToAsync(stream);
+            return BadRequest();
         }
 
-        category.UrlImage = $"/images/{category.Image.FileName}";
+        // Defina a imagem usando o método público
+        category.SetImage(Request.Form.Files.FirstOrDefault());
 
         _context.Categories.Add(category);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+        return CreatedAtAction(nameof(GetCategories), new { id = category.Id }, category);
     }
 
     // PUT: api/categories/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutCategory(int id, Category category)
+    public async Task<IActionResult> PutCategory(int id, [FromForm] Category category)
     {
         if (id != category.Id)
         {
             return BadRequest();
         }
+        
+        var existingCategory = await _context.Categories.FindAsync(id);
+        if (existingCategory == null)
+        {
+            return NotFound();
+        }
 
-        _context.Entry(category).State = EntityState.Modified;
+        // Atualize as propriedades da categoria existente
+        existingCategory.Name = category.Name;
+        existingCategory.Description = category.Description;
+        existingCategory.UrlImage = category.UrlImage;
+        existingCategory.Status = category.Status;
+        existingCategory.UserId = category.UserId;
+
+        _context.Entry(existingCategory).State = EntityState.Modified;
 
         try
         {
@@ -76,7 +85,7 @@ public class CategoriesController : ControllerBase
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!CategoryExists(id))
+            if (!_context.Categories.Any(e => e.Id == id))
             {
                 return NotFound();
             }

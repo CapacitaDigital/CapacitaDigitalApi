@@ -1,6 +1,7 @@
 ﻿// Models/Category.cs
 using CapacitaDigitalApi.Enums;
-using System.ComponentModel.DataAnnotations.Schema; // Adicione esta linha
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CapacitaDigitalApi.Models;
 public class Category
 {
@@ -10,7 +11,20 @@ public class Category
     public string? UrlImage { get; set; } // URL da imagem da categoria  
     public required CategoryStatus Status { get; set; } // Status da categoria
     public int UserId { get; set; }  // Propriedade para a chave estrangeira do usuário que gere a categoria                  
-    [NotMapped]
-    public IFormFile? Image { get; set; }// Propriedade para receber o arquivo de imagem
 
+    [NotMapped]
+    private IFormFile? Image { get; set; }// Propriedade para receber o arquivo de imagem
+
+    // Método para definir a imagem
+    public void SetImage(IFormFile? image)
+    {
+        Image = image;
+    }
+
+    // Método para acessar a imagem
+    public IFormFile? GetImage()
+    {
+        return Image;
+    }
 }
+
