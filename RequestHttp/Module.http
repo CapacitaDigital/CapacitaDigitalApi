@@ -1,0 +1,45 @@
+@HostAddres = http://localhost:5158/api
+
+### GET pegar uma Categoria
+GET {{HostAddres}}/modules/1
+Accept: application/json
+
+### GET pegar todas as Categorias
+GET {{HostAddres}}/modules/
+Accept: application/json
+
+### POST criar uma Categoria
+POST {{HostAddres}}/modules/
+Content-Type: application/json
+
+{
+    "Title": "Conhecendo as letras",
+    "Description": "Conheca as letras do alfabeto ",
+    "UrlImage": "/images/modules/default.jpeg",
+    "Status": "Active",
+    "Nivel": "Easy",
+    "CategoryId": 1
+  
+}
+
+### PUT atualizar uma categoria
+PUT {{HostAddres}}/modules/1
+Content-Type: application/json
+Accept: application/json
+
+  {
+    "Id": 1,
+    "Title": "Conhecendo as letras",
+    "Description": "Conheca as letras do alfabeto ",
+    "UrlImage": "/images/modules/default.jpeg",
+    "Status": "Active",
+    "Nivel": "Easy",
+    "CategoryId": 1
+  }
+
+### DELETE remover uma categoria
+DELETE {{HostAddres}}/modules/1
+Accept: application/json   
+
+
+

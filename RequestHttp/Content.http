@@ -1,0 +1,49 @@
+@HostAddres = http://localhost:5158/api
+
+### GET Pegar um contetent específico
+GET {{HostAddres}}/content/1
+Accept: application/json
+
+### GET Pegar todos os contents
+GET {{HostAddres}}/contents/
+Accept: application/json
+
+### POST criar um novo content
+POST {{HostAddres}}/contents/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Title": "Consoantes",
+    "Description": "Conheca as consoantes do alfabeto",
+    "Type": "ClassRoom",
+    "UrlImage": "/images/content/default.jpeg",
+    "UrlsDocuments": "/documents/content/default.pdf,/documents/content/default.pdf",
+    "UrlVideo": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
+    "ActivityData" : "{\"vogais\": [\"B\",\"C\",\"D\",\"G\",\"F\"],\"audios\": [\"/sounds/content/b.mp3\", \"/sounds/content/c.mp3\", \"/sounds/content/d.mp3\", \"/sounds/content/g.mp3\", \"/sounds/content/f.mp3\"]}",
+    "ModuleId": 1
+    
+}
+
+### PUT atualizar um content
+PUT {{HostAddres}}/contents/2
+Content-Type: application/json
+
+{
+    "Id": 2,
+    "Title": "Consoantes",
+    "Description": "Conheca as consoantes do alfabeto",
+    "Type": "ClassRoom",
+    "UrlImage": "/images/content/default.jpeg",
+    "UrlsDocuments": [
+        "/documents/content/default.pdf",
+        "/documents/content/default.pdf"
+    ],
+    "UrlVideo": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
+    "ActivityData" : "{\"vogais\": [\"B\",\"C\",\"D\",\"G\",\"F\"],\"audios\": [\"/sounds/content/b.mp3\", \"/sounds/content/c.mp3\", \"/sounds/content/d.mp3\", \"/sounds/content/g.mp3\", \"/sounds/content/f.mp3\"]}",
+    "ModuleId": 1
+}
+
+### DELETE remover um content
+DELETE {{HostAddres}}/contents/2
+Accept: application/json
