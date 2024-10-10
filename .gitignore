@@ -1,0 +1,98 @@
+# Compiled source
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono)
+*.userprefs
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+
+# Rider
+.idea/
+.idea/*
+
+# ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Auto-generated files (backup)
+*.bak
+
+# NPM Packages
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Database
+*.mdf
+*.ldf
+*.ndf
+
+# Entity Framework Migrations
+Migrations/
+
+# Publish output
+publish/
+out/
+
+# Azure Pipelines
+.azure-pipelines/
+
+# Local History for JetBrains IDEs
+.localhistory/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# JetBrains Rider directories
+.idea/
+
+# DotNet SDK
+.dotnet/
+
+# Coverage reports
+coverage/
+
+# Resharper
+_ReSharper.Caches/
+
+# Rider
+.idea/
+
+# Backup files
+*.bak
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
