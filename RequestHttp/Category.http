@@ -11,14 +11,14 @@ Accept: application/json
 ### POST criar uma Categoria
 POST {{HostAddres}}/categories/
 Content-Type: application/json
+Accept: application/json
 
 {
   "Name": "Português",
   "Description": "Categoria de português para ensino fundamental 1 e 2",
   "urlImage": "/images/default.jpeg",
   "Status": "Active",
-  "UserId": 1
-  
+  "UserId": 20
 }
 
 ### PUT atualizar uma categoria

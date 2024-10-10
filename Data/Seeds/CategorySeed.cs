@@ -12,17 +12,26 @@ public static class CategorySeed
         }
 
         // Adiciona dados de exemplo para categorias
-        context.Categories.AddRange(
-            new Category
-            {
-                Name = "Português",
-                Description = "Categoria de português para ensino fundamental 1 e 2",
-                Status = CategoryStatus.Active,
-                UserId = 1,
-                UrlImage = "/images/default.jpeg"
-            }
-        );
+        var existingUser = context.Users.FirstOrDefault();
+        if (existingUser != null)
+        {
+            context.Categories.AddRange(
+                new Category
+                {
+                    Name = "Português",
+                    Description = "Categoria de português para ensino fundamental 1 e 2",
+                    Status = CategoryStatus.Active,
+                    UserId = existingUser.Id, // Usa o Id de um usuário existente
+                    UrlImage = "/images/default.jpeg"
+                }
+            );
 
-        context.SaveChanges();
+            context.SaveChanges();
+        }
+        else
+        {
+            // Lida com o caso onde não há usuários existentes
+            Console.WriteLine("Nenhum usuário existente encontrado.");
+        }
     }
 }
