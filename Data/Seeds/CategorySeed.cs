@@ -12,7 +12,7 @@ public static class CategorySeed
         }
 
         // Adiciona dados de exemplo para categorias
-        var existingUser = context.Users.FirstOrDefault();
+        var existingUser = context.Users.OrderBy(i => i.Id).FirstOrDefault();
         if (existingUser != null)
         {
             context.Categories.AddRange(

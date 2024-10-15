@@ -47,9 +47,6 @@ yarn-error.log
 *.ldf
 *.ndf
 
-# Entity Framework Migrations
-Migrations/
-
 # Publish output
 publish/
 out/

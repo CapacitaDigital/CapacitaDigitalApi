@@ -18,10 +18,10 @@ Accept: application/json
     "Description": "Conheca as consoantes do alfabeto",
     "Type": "ClassRoom",
     "UrlImage": "/images/content/default.jpeg",
-    "UrlsDocuments": "/documents/content/default.pdf,/documents/content/default.pdf",
+    "UrlsDocuments": ["/documents/content/default.pdf", "/documents/content/default.pdf"],
     "UrlVideo": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
     "ActivityData" : "{\"vogais\": [\"B\",\"C\",\"D\",\"G\",\"F\"],\"audios\": [\"/sounds/content/b.mp3\", \"/sounds/content/c.mp3\", \"/sounds/content/d.mp3\", \"/sounds/content/g.mp3\", \"/sounds/content/f.mp3\"]}",
-    "ModuleId": 1
+    "ModuleId": 1003
     
 }
 
