@@ -1,7 +1,7 @@
 // Controllers/CategoriesController.cs
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CapacitaDigitalApi.Models; // Substitua pelo seu namespace real
+using CapacitaDigitalApi.Models; 
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

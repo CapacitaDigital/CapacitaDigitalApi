@@ -23,6 +23,14 @@ public static class CategorySeed
                     Status = CategoryStatus.Active,
                     UserId = existingUser.Id, // Usa o Id de um usuário existente
                     UrlImage = "/images/default.jpeg"
+                },
+                new Category
+                {
+                    Name = "Matemática",
+                    Description = "Categoria de matemática para ensino fundamental 1 e 2",
+                    Status = CategoryStatus.Active,
+                    UserId = existingUser.Id, // Usa o Id de um usuário existente
+                    UrlImage = "/images/default.jpeg"
                 }
             );
 
