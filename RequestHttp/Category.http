@@ -1,7 +1,7 @@
 @HostAddres = http://localhost:5158/api
 
 ### GET pegar uma Categoria
-GET {{HostAddres}}/categories/1
+GET {{HostAddres}}/categories/8003
 Accept: application/json
 
 ### GET pegar todas as Categorias

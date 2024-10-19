@@ -1,7 +1,7 @@
 @HostAddres = http://localhost:5158/api
 
 ### GET Pegar um contetent específico
-GET {{HostAddres}}/content/1
+GET {{HostAddres}}/contents/8004
 Accept: application/json
 
 ### GET Pegar todos os contents
