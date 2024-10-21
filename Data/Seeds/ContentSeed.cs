@@ -39,7 +39,7 @@ public static class ContentSeed
                     "/documents/consoantes1.pdf",
                     "/documents/consoantes2.pdf"
                 },
-                ActivityData = "{\"vogais\": [\"B\", \"C\", \"D\", \"F\", \"G\"],\"audios\": [\"/sounds/b.mp3\", \"/sounds/c.mp3\", \"/sounds/d.mp3\", \"/sounds/f.mp3\", \"/sounds/g.mp3\"]}",
+                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\"],\"audios\": [\"/sounds/b.mp3\", \"/sounds/c.mp3\", \"/sounds/d.mp3\", \"/sounds/f.mp3\", \"/sounds/g.mp3\"]}",
                 ModuleId = existingModule.Id
             }
         );
