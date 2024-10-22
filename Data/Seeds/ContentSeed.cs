@@ -17,7 +17,7 @@ public static class ContentSeed
                 Title = "Vogais",
                 Description = "Aprenda as vogais do alfabeto",
                 Type = ContentType.ClassRoom,
-                UrlImage = "/images/content/default.jpeg",
+                UrlImage = "/images/default.jpeg",
                 UrlVideo = "https://youtu.be/SEXGH4mG4is?si=E30RYMfxpUODFDYa",
                 UrlsDocuments = new List<string>
                 {
@@ -32,7 +32,7 @@ public static class ContentSeed
                 Title = "Consoantes",
                 Description = "Aprenda as consoantes do alfabeto",
                 Type = ContentType.ClassRoom,
-                UrlImage = "/images/content/default.jpeg",
+                UrlImage = "/images/default.jpeg",
                 UrlVideo = "https://youtu.be/SEXGH4mG4is?si=E30RYMfxpUODFDYa",
                 UrlsDocuments = new List<string>
                 {
