@@ -4,5 +4,6 @@ namespace CapacitaDigitalApi.Enums
     {
         Exercise = 1,
         ClassRoom = 2,
+        Assets = 3
     }
 }

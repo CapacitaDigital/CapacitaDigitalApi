@@ -20,7 +20,7 @@ namespace CapacitaDigitalApi.Controllers
         public ContentsController(AppDbContext context)
         {
             _context = context;
-            _targetFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images"); // Define o caminho onde os arquivos serão salvos no servidor (wwwroot/images)
+            _targetFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"); // Define o caminho onde os arquivos serão salvos no servidor (wwwroot/images)
             if (!Directory.Exists(_targetFilePath))
             {
                 Directory.CreateDirectory(_targetFilePath);
@@ -48,7 +48,7 @@ namespace CapacitaDigitalApi.Controllers
             return content;
         }
 
-        // POST: api/Contents/upload
+        // POST: api/contents/upload
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
@@ -57,17 +57,38 @@ namespace CapacitaDigitalApi.Controllers
                 return BadRequest("Nenhum arquivo foi enviado.");
             }
 
-            // Garante que apenas o nome do arquivo seja usado
-            var fileName = Path.GetFileName(file.FileName);
-            var filePath = Path.Combine(_targetFilePath, fileName);
 
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            // Garante que apenas o nome do arquivo seja usado
+            var fileName = Path.GetFileName(file.FileName); // Obtem o nome do arquivo == file.FileName
+            var fileExtension = Path.GetExtension(file.FileName); // Obtem a extensão do arquivo == .pdf ou .jpg
+            var filePath = string.Empty; // Inicializa a variável filePath
+
+            // VERIFICA SE O ARQUIVO É PERMITIDO PARA UPLOAD (APENAS .pdf .json .txt .jpg .png .jpeg)
+            if (fileExtension != ".pdf" && fileExtension != ".txt" && fileExtension != ".json" && fileExtension != ".jpg" && fileExtension != ".png" && fileExtension != ".jpeg" && fileExtension != ".mp3" && fileExtension != ".wav")
             {
-                await file.CopyToAsync(stream);
+                return BadRequest("Apenas arquivos .pdf .json .txt .jpg .png .jpeg e .mp3 são permitidos.");
+            }
+            // Cria o caminho do arquivo com base na extensão do arquivo
+            else if (fileExtension == ".pdf" || fileExtension == ".json" || fileExtension == ".txt")
+            {
+                filePath = Path.Combine(_targetFilePath, "documents", fileName);
+            }
+            else if (fileExtension == ".jpg" || fileExtension == ".png" || fileExtension == ".jpeg")
+            {
+                filePath = Path.Combine(_targetFilePath, "images", fileName);
+            }
+            else if (fileExtension == ".mp3" || fileExtension == ".wav")
+            {
+                filePath = Path.Combine(_targetFilePath, "sounds", fileName);
+            }
+
+            using (var stream = new FileStream(filePath, FileMode.Create)) // Cria um arquivo no caminho especificado e abre o arquivo para escrita 
+            {
+                await file.CopyToAsync(stream); // Copia o conteúdo do arquivo para o stream
             }
 
 
-            return Ok(new { filePath });
+            return Ok(new { filePath }); // Retorna o caminho do arquivo salvo
         }
 
         // POST: api/Contents
@@ -93,11 +114,10 @@ namespace CapacitaDigitalApi.Controllers
         {
             if (id != content.Id)
             {
-                return BadRequest();
+                return BadRequest("O ID do conteúdo não corresponde ao ID fornecido.");
             }
 
-            _context.Entry(content).State = EntityState.Modified;
-
+            _context.Entry(content).State = EntityState.Modified; // Define o estado da entidade como modificado
             try
             {
                 await _context.SaveChangesAsync();
@@ -106,7 +126,7 @@ namespace CapacitaDigitalApi.Controllers
             {
                 if (!ContentExists(id))
                 {
-                    return NotFound();
+                    return NotFound("O conteúdo não foi encontrado.");
                 }
                 else
                 {
@@ -114,7 +134,7 @@ namespace CapacitaDigitalApi.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok("O conteúdo foi atualizado com sucesso.");
         }
 
         // DELETE: api/Contents/5
@@ -130,7 +150,7 @@ namespace CapacitaDigitalApi.Controllers
             _context.Contents.Remove(content);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok("O conteúdo foi deletado com sucesso!");
         }
 
         private bool ContentExists(int id)

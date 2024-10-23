@@ -9,7 +9,7 @@ GET {{HostAddres}}/categories/
 Accept: application/json
 
 ### POST criar uma Categoria
-POST {{HostAddres}}/categories/
+POST {{HostAddres}}/categories
 Content-Type: application/json
 Accept: application/json
 

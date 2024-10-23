@@ -10,20 +10,25 @@ public static class ModuleSeed
             context.Modules.RemoveRange(context.Modules);
             context.SaveChanges();
         }
+        // Adiciona dados de exemplo para categorias
+        var existingCategory = context.Categories.OrderBy(i => i.Id).FirstOrDefault();
+        if (existingCategory != null)
+        {
+            // Adiciona dados de exemplo para módulos
+            context.Modules.AddRange(
+                new Module
+                {
+                    Title = "Conhecendo as letras",
+                    Description = "Conheca as letras do alfabeto, vogais e consoantes.",
+                    Nivel = ModuleNivel.Easy,
+                    Status = ModuleStatus.Active,
+                    CategoryId = existingCategory.Id,
+                }
+            );
 
-        // Adiciona dados de exemplo para módulos
-        context.Modules.AddRange(
-            new Module
-            {
-                Title = "Conhecendo as letras",
-                Description = "Conheca as letras do alfabeto, vogais e consoantes.",
-                Nivel = ModuleNivel.Easy,
-                Status = ModuleStatus.Active,
-                CategoryId = 1
-            }
-        );
+            context.SaveChanges();
+        }
 
-        context.SaveChanges();
 
     }
 }

@@ -14,17 +14,34 @@ public static class ContentSeed
         context.Contents.AddRange(
             new Content
             {
-                Title = "Vogais",
-                Description = "Aprenda as vogais do alfabeto",
-                Type = ContentType.ClassRoom,
-                UrlImage = "/images/default.jpeg",
+                Title = "Recursos do módulo",
+                Description = "Aqui estão todos os recursos deste módulo disponibilizados pelo professor da disciplina",
+                Type = ContentType.Assets,
+                UrlImage = "/images/assets.jpeg",
                 UrlVideo = "https://youtu.be/SEXGH4mG4is?si=E30RYMfxpUODFDYa",
                 UrlsDocuments = new List<string>
                 {
-                    "/documents/vogais1.pdf",
-                    "/documents/vogais2.pdf"
+                    "/documents/vogais.pdf",
+                    "/documents/consoantes.pdf",
+                    "/documents/alfabeto.pdf",
+                    "/documents/alfabeto.json",
                 },
-                ActivityData = "{\"vogais\": [\"A\", \"E\", \"I\", \"O\", \"U\"],\"audios\": [\"/sounds/a.mp3\", \"/sounds/e.mp3\", \"/sounds/i.mp3\", \"/sounds/o.mp3\", \"/sounds/u.mp3\"]}",
+                ActivityData = "{\"alfabeto\": [\"A\", \"B\", \"C\", \"D\", \"E\"]}",
+                ModuleId = existingModule.Id
+            },
+            new Content
+            {
+                Title = "Vogais",
+                Description = "Aprenda as vogais do alfabeto",
+                Type = ContentType.ClassRoom,
+                UrlImage = "/images/vogais.jpeg",
+                UrlVideo = "https://youtu.be/SEXGH4mG4is?si=E30RYMfxpUODFDYa",
+                UrlsDocuments = new List<string>
+                {
+                    "/documents/vogais.pdf",
+                    "/documents/vogais.json"
+                },
+                ActivityData = "{\"vogais\": [\"A\", \"E\", \"I\", \"O\", \"U\"],\"urlSounds\": \"/sounds/\"}",
                 ModuleId = existingModule.Id
             },
             new Content
@@ -32,14 +49,14 @@ public static class ContentSeed
                 Title = "Consoantes",
                 Description = "Aprenda as consoantes do alfabeto",
                 Type = ContentType.ClassRoom,
-                UrlImage = "/images/default.jpeg",
+                UrlImage = "/images/consoantes.jpeg",
                 UrlVideo = "https://youtu.be/SEXGH4mG4is?si=E30RYMfxpUODFDYa",
                 UrlsDocuments = new List<string>
                 {
-                    "/documents/consoantes1.pdf",
-                    "/documents/consoantes2.pdf"
+                    "/documents/consoantes.pdf",
+                    "/documents/consoantes.json"
                 },
-                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\"],\"audios\": [\"/sounds/b.mp3\", \"/sounds/c.mp3\", \"/sounds/d.mp3\", \"/sounds/f.mp3\", \"/sounds/g.mp3\"]}",
+                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\"],\"urlSounds\": \"/sounds/\"}",
                 ModuleId = existingModule.Id
             }
         );

@@ -1,7 +1,7 @@
 // Controllers/CategoriesController.cs
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CapacitaDigitalApi.Models; 
+using CapacitaDigitalApi.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -39,31 +39,36 @@ public class CategoriesController : ControllerBase
 
     // POST: api/categories
     [HttpPost]
-    public async Task<ActionResult<Category>> PostCategory([FromForm] Category category)
+    public async Task<ActionResult<Category>> PostCategory(Category category)
     {
-        if (category == null)
+        try
         {
-            return BadRequest();
+            if (category == null)
+            {
+                return BadRequest("Nenhuma categoria foi enviada.");
+            }
+
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+
         }
+        catch (System.Exception)
+        {
 
-        // Defina a imagem usando o método público
-        category.SetImage(Request.Form.Files.FirstOrDefault());
-
-        _context.Categories.Add(category);
-        await _context.SaveChangesAsync();
-
+            throw;
+        }
         return CreatedAtAction(nameof(GetCategories), new { id = category.Id }, category);
     }
 
     // PUT: api/categories/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutCategory(int id, [FromForm] Category category)
+    public async Task<IActionResult> PutCategory(int id, Category category)
     {
         if (id != category.Id)
         {
             return BadRequest();
         }
-        
+
         var existingCategory = await _context.Categories.FindAsync(id);
         if (existingCategory == null)
         {
