@@ -21,6 +21,7 @@ COPY --from=build /out .
 COPY entrypoint.sh .
 COPY wait-for-it.sh .
 
+EXPOSE 8080
 # Concede permissões de execução aos scripts de entrada
 RUN chmod +x entrypoint.sh wait-for-it.sh
 

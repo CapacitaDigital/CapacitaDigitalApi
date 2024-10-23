@@ -5,23 +5,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CapacitaDigitalApi.Models;
 public class Category
 {
-    public int Id { get; set; } // Id da categoria  
-    public string Name { get; set; } // Nome da categoria
-    public string? Description { get; set; } // Descrição da categoria  
-    public string? UrlImage { get; set; } // URL da imagem da categoria  
-    public CategoryStatus Status { get; set; } // Status da categoria
-    public int UserId { get; set; }  // Propriedade para a chave estrangeira do usuário que gere a categoria                  
+    public int Id { get; set; } 
+    public string Name { get; set; } 
+    public string? Description { get; set; } 
+    public string? UrlImage { get; set; } 
+    public CategoryStatus Status { get; set; } 
+    public int UserId { get; set; }                    
 
     [NotMapped]
-    private IFormFile? Image { get; set; }// Propriedade para receber o arquivo de imagem
+    private IFormFile? Image { get; set; }
 
-    // Método para definir a imagem
     public void SetImage(IFormFile? image)
     {
         Image = image;
     }
 
-    // Método para acessar a imagem
     public IFormFile? GetImage()
     {
         return Image;
