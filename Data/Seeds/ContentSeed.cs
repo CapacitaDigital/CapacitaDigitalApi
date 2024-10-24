@@ -14,7 +14,7 @@ public static class ContentSeed
         context.Contents.AddRange(
             new Content
             {
-                Title = "Recursos do módulo",
+                Title = "Recursos",
                 Description = "Aqui estão todos os recursos deste módulo disponibilizados pelo professor da disciplina",
                 Type = ContentType.Assets,
                 UrlImage = "/images/assets.jpeg",
@@ -26,7 +26,7 @@ public static class ContentSeed
                     "/documents/alfabeto.pdf",
                     "/documents/alfabeto.json",
                 },
-                ActivityData = "{\"alfabeto\": [\"A\", \"B\", \"C\", \"D\", \"E\"]}",
+                ActivityData = "{\"alfabeto\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\"urlSounds\": [\"/sounds/\"]}",
                 ModuleId = existingModule.Id
             },
             new Content
@@ -41,7 +41,7 @@ public static class ContentSeed
                     "/documents/vogais.pdf",
                     "/documents/vogais.json"
                 },
-                ActivityData = "{\"vogais\": [\"A\", \"E\", \"I\", \"O\", \"U\"],\"urlSounds\": \"/sounds/\"}",
+                ActivityData = "{\"vogais\": [\"A\", \"E\", \"I\", \"O\", \"U\"],\"urlSounds\": [\"/sounds/\"]}",
                 ModuleId = existingModule.Id
             },
             new Content
@@ -56,7 +56,7 @@ public static class ContentSeed
                     "/documents/consoantes.pdf",
                     "/documents/consoantes.json"
                 },
-                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\"],\"urlSounds\": \"/sounds/\"}",
+                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\"],\"urlSounds\": [\"/sounds/\"]}",
                 ModuleId = existingModule.Id
             }
         );
