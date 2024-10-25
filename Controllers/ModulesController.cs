@@ -38,7 +38,7 @@ namespace CapacitaDigitalApi.Controllers
             var modules = await _context.Modules.Where(m => m.CategoryId == id).ToListAsync();
 
             if (!modules.Any())
-    {
+            {
                  Console.WriteLine("Não pegou");
             }
 

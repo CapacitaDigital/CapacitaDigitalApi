@@ -48,6 +48,19 @@ namespace CapacitaDigitalApi.Controllers
             return content;
         }
 
+        [HttpGet("modules/{id}")]
+        public async Task<ActionResult<IEnumerable<Module>>> GetCategories(int id)
+        {
+            var contents = await _context.Contents.Where(m => m.ModuleId == id).ToListAsync();
+
+            if (!contents.Any())
+            {
+                 Console.WriteLine("Não encontrado");
+            }
+
+            return Ok(contents);
+        }
+
         // POST: api/contents/upload
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile(IFormFile file)
