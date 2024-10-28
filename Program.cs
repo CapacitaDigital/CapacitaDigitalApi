@@ -14,7 +14,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; 
 });
 
-
+// Adicionar a política CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",

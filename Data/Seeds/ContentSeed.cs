@@ -56,7 +56,37 @@ public static class ContentSeed
                     "/documents/consoantes.pdf",
                     "/documents/consoantes.json"
                 },
-             ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\", \"H\",  \"J\", \"K\", \"L\", \"M\", \"N\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"V\", \"W\", \"X\", \"Y\", \"Z\"],\"urlSounds\": [\"/sounds/\"]}",
+                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\", \"H\",  \"J\", \"K\", \"L\", \"M\", \"N\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"V\", \"W\", \"X\", \"Y\", \"Z\"],\"urlSounds\": [\"/sounds/\"]}",
+                ModuleId = existingModule.Id
+            },
+            new Content
+            {
+                Title = "Atividade Consoantes",
+                Description = "pratique com os conhecimentos em que você adiquirio a cerca das consoantes do alfabeto",
+                Type = ContentType.Exercise,
+                UrlImage = "/images/alfabeto.jpeg",
+                UrlVideo = "https://www.youtube.com/embed/MY9KP4m35Tc?si=Gk0qqeXdtvZkjTQD",
+                UrlsDocuments = new List<string>
+                {
+                    "/documents/consoantes.pdf",
+                    "/documents/consoantes.json"
+                },
+                ActivityData = "{\"consoantes\": [\"B\", \"C\", \"D\", \"F\", \"G\", \"H\",  \"J\", \"K\", \"L\", \"M\", \"N\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"V\", \"W\", \"X\", \"Y\", \"Z\"],\"urlSounds\": [\"/sounds/\"]}",
+                ModuleId = existingModule.Id
+            },
+            new Content
+            {
+                Title = "Atividade Vogais",
+                Description = "pratique com os conhecimentos em que você adiquirio a cerca das Vogais do alfabeto",
+                Type = ContentType.Exercise,
+                UrlImage = "/images/vogais.jpeg",
+                UrlVideo = "https://www.youtube.com/embed/MY9KP4m35Tc?si=Gk0qqeXdtvZkjTQD",
+                UrlsDocuments = new List<string>
+                {
+                    "/documents/vogais.pdf",
+                    "/documents/vogais.json"
+                },
+                ActivityData = "{\"vogais\": [\"A\", \"E\", \"I\", \"O\", \"U\"],\"urlSounds\": [\"/sounds/\"]}",
                 ModuleId = existingModule.Id
             }
         );
