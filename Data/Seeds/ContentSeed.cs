@@ -4,11 +4,11 @@ public static class ContentSeed
 {
     public static void Seed(AppDbContext context)
     {
-        if (context.Contents.Any())
-        {
-            context.Contents.RemoveRange(context.Contents);
-            context.SaveChanges();
-        }
+        // if (context.Contents.Any())
+        // {
+        //     context.Contents.RemoveRange(context.Contents);
+        //     context.SaveChanges();
+        // }
         var existingModule = context.Modules.OrderBy(i => i.Id).FirstOrDefault();
 
         context.Contents.AddRange(
