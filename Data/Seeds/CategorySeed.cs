@@ -5,11 +5,11 @@ public static class CategorySeed
     public static void Seed(AppDbContext context)
     {
         // Verifica se já existem dados no banco
-        // if (context.Categories.Any()) 
-        // {
-        //     context.Categories.RemoveRange(context.Categories);
-        //     context.SaveChanges();
-        // }
+        if (context.Categories.Any()) 
+        {
+            context.Categories.RemoveRange(context.Categories);
+            context.SaveChanges();
+        }
 
         // Adiciona dados de exemplo para categorias
         var existingUser = context.Users.OrderBy(i => i.Id).FirstOrDefault();

@@ -5,11 +5,11 @@ public static class UserSeed
 {
     public static void Seed(AppDbContext context)
     {
-        // if (context.Users.Any())
-        // {
-        //     context.Users.RemoveRange(context.Users);
-        //     context.SaveChanges();
-        // }
+        if (context.Users.Any())
+        {
+            context.Users.RemoveRange(context.Users);
+            context.SaveChanges();
+        }
 
         context.Users.AddRange(
             new User
