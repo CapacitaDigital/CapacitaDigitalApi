@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-# Força a exclusão do banco de dados sem solicitar confirmação
-dotnet ef database drop --force --project /app/CapacitaDigitalApi.csproj
+# Espera o PostgreSQL estar pronto
+./wait-for-it.sh postgres:5432 --timeout=60 --strict -- echo "PostgreSQL is up"
 
-# Aplica as migrações do Entity Framework
-dotnet ef database update --project /app/CapacitaDigitalApi.csproj
+# Aplicar migrações do Entity Framework
+dotnet ef database update
 
-# Inicia a aplicação
+# Iniciar a aplicação
 dotnet CapacitaDigitalApi.dll

@@ -1,22 +1,25 @@
+version: '3.8'
 
 services:
-  app:
-    image: api
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    depends_on:
-      - sqlserver
+  postgres:
+    image: postgres
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CapacitaDigital;User Id=sa;Password=@Sql21301;TrustServerCertificate=True;
+      POSTGRES_USER: jjmt
+      POSTGRES_PASSWORD: "@Sql21301"
+      POSTGRES_DB: capacitadigital
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    environment:
-      SA_PASSWORD: "@Sql21301"
-      ACCEPT_EULA: "Y"
+  web:
+    build: .
+    depends_on:
+      - postgres
     ports:
-      - "1433:1433"
+      - "8080:80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capacitadigital;Username=jjmt;Password=@Sql21301
+
+volumes:
+  postgres_data:

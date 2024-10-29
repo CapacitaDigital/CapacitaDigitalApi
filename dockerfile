@@ -1,20 +1,20 @@
-# Usa a imagem base do SDK do .NET 8.0 para compilar e publicar a aplicação
+# Etapa 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-# Copia o arquivo de projeto e restaura as dependências
-COPY CapacitaDigitalApi.csproj ./
-RUN dotnet restore
+# Copiar os arquivos de projeto e restaurar as dependências
+COPY ["CapacitaDigitalApi/CapacitaDigitalApi.csproj", "CapacitaDigitalApi/"]
+RUN dotnet restore "CapacitaDigitalApi/CapacitaDigitalApi.csproj"
 
-# Copia o restante do código da aplicação para o container
+# Copiar o restante dos arquivos e compilar a aplicação
 COPY . .
-# Compila a aplicação em modo Release e coloca os binários no diretório /out
-RUN dotnet build -c Release -o /out
+WORKDIR "/src/CapacitaDigitalApi"
+RUN dotnet build "CapacitaDigitalApi.csproj" -c Release -o /app/build
 
-# Publica a aplicação em modo Release e coloca os artefatos no diretório /out
-RUN dotnet publish -c Release -o /out
+# Publicar a aplicação
+RUN dotnet publish "CapacitaDigitalApi.csproj" -c Release -o /out
 
-# Usa a imagem base do SDK do .NET 8.0 para rodar a aplicação e garantir que o Entity Framework CLI esteja disponível
+# Etapa 2: Runtime
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /out .
@@ -22,6 +22,7 @@ COPY entrypoint.sh .
 COPY wait-for-it.sh .
 
 EXPOSE 8080
+
 # Concede permissões de execução aos scripts de entrada
 RUN chmod +x entrypoint.sh wait-for-it.sh
 
@@ -31,5 +32,8 @@ RUN dotnet tool install --global dotnet-ef
 # Adiciona o diretório de ferramentas .NET ao PATH
 ENV PATH="$PATH:/root/.dotnet/tools"
 
-# Define o ponto de entrada para o script de inicialização
+# Definir a variável de ambiente para a string de conexão do PostgreSQL
+ENV ConnectionStrings__DefaultConnection="Host=postgres;Database=capacitadigital;Username=jjmt;Password=@Sql21301"
+
+# Comando de entrada para iniciar a aplicação
 ENTRYPOINT ["./entrypoint.sh"]
