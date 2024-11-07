@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copiar os arquivos de projeto e restaurar as dependências
-COPY ["CapacitaDigitalApi/CapacitaDigitalApi.csproj", "CapacitaDigitalApi/"]
+COPY CapacitaDigitalApi.csproj CapacitaDigitalApi/
 RUN dotnet restore "CapacitaDigitalApi/CapacitaDigitalApi.csproj"
 
 # Copiar o restante dos arquivos e compilar a aplicação
